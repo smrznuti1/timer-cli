@@ -8,9 +8,6 @@
 #define DEFAULT_TIMER_VALUE_IN_MINUTES 30
 
 int parse_arguments2(int argc, char **argv) {
-  if (argc == 1) {
-    return DEFAULT_TIMER_VALUE_IN_MINUTES * SECONDS_IN_MINUTE;
-  }
   if (argc != 2) {
     fprintf(stderr, "Too many arguments.\n");
     exit(-1);
@@ -44,12 +41,8 @@ int parse_arguments2(int argc, char **argv) {
 }
 
 int parse_arguments(int argc, char *argv[]) {
-  int sleep_time;
-  if (argc == 1) {
-    return DEFAULT_TIMER_VALUE_IN_MINUTES * SECONDS_IN_MINUTE;
-  }
-
   if (argc == 2) {
+    int sleep_time;
     sscanf(argv[1], "%d", &sleep_time);
     return sleep_time;
   }
@@ -62,7 +55,7 @@ int parse_arguments(int argc, char *argv[]) {
     return SECONDS_IN_MINUTE * minutes + seconds;
   }
 
-  if (argc == 3) {
+  if (argc == 4) {
     int seconds;
     int minutes;
     int hours;
@@ -74,9 +67,33 @@ int parse_arguments(int argc, char *argv[]) {
   exit(-1);
 }
 
+int check_format(char *input) {
+  for (int i = 0; input[i] != '\0'; i++) {
+    if (input[i] == 's' || input[i] == 'm' || input[i] == 'h') {
+      return 2;
+    }
+  }
+  return 1;
+  // while (*input != '\0') {
+  //   if (*input == 's' || *input == 'm' || *input == 'h') {
+  //     return 2;
+  //   }
+  //   input++;
+  // }
+  // return 1;
+}
+
 int main(int argc, char *argv[]) {
-  // int sleep_time = parse_arguments(argc, argv);
-  int sleep_time = parse_arguments2(argc, argv);
+  int sleep_time;
+  if (argc == 1) {
+    sleep_time = DEFAULT_TIMER_VALUE_IN_MINUTES * SECONDS_IN_MINUTE;
+  } else {
+    if (check_format(argv[1]) == 2) {
+      sleep_time = parse_arguments2(argc, argv);
+    } else {
+      sleep_time = parse_arguments(argc, argv);
+    }
+  }
 
   for (int i = 0, step = sleep_time / 10; i < sleep_time; i += step) {
     sleep(step);
