@@ -74,13 +74,6 @@ int check_format(char *input) {
     }
   }
   return 1;
-  // while (*input != '\0') {
-  //   if (*input == 's' || *input == 'm' || *input == 'h') {
-  //     return 2;
-  //   }
-  //   input++;
-  // }
-  // return 1;
 }
 
 int main(int argc, char *argv[]) {
