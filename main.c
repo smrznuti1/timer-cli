@@ -4,12 +4,12 @@
 
 #define SECONDS_IN_MINUTE 60
 #define SECONDS_IN_HOUR 3600
-#define DEFAULT_TIMER_VALUE 30
+#define DEFAULT_TIMER_VALUE_IN_MINUTES 30
 
 int main(int argc, char *argv[]) {
   int sleep_time;
   if (argc == 1) {
-    sleep_time = DEFAULT_TIMER_VALUE * SECONDS_IN_MINUTE;
+    sleep_time = DEFAULT_TIMER_VALUE_IN_MINUTES * SECONDS_IN_MINUTE;
   } else if (argc == 2) {
     sscanf(argv[1], "%d", &sleep_time);
   } else if (argc == 3) {
