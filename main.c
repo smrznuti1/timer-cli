@@ -95,6 +95,9 @@ int main(int argc, char *argv[]) {
     float percentage = (float)(i + step) / sleep_time * 100;
     printf("%.0f%% \n", percentage);
   }
-  int status = system("play /usr/share/sounds/freedesktop/stereo/complete.oga");
+  // int status = system("play
+  // /usr/share/sounds/freedesktop/stereo/complete.oga");
+  int status = system("play /usr/share/sounds/freedesktop/stereo/bell.oga");
+  status = system("play /usr/share/sounds/freedesktop/stereo/bell.oga");
   return status;
 }
