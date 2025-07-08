@@ -92,7 +92,7 @@ int main(int argc, char *argv[]) {
   for (int i = 0, step = ceil((double)sleep_time / 10); i < sleep_time;
        i += step) {
     sleep(step);
-    float percentage = (float)i / sleep_time * 100;
+    float percentage = (float)(i + step) / sleep_time * 100;
     printf("%.0f%% \n", percentage);
   }
   int status = system("play /usr/share/sounds/freedesktop/stereo/complete.oga");
