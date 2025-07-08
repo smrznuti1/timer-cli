@@ -1,4 +1,5 @@
 #include <ctype.h>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -88,7 +89,8 @@ int main(int argc, char *argv[]) {
     }
   }
 
-  for (int i = 0, step = sleep_time / 10; i < sleep_time; i += step) {
+  for (int i = 0, step = ceil((double)sleep_time / 10); i < sleep_time;
+       i += step) {
     sleep(step);
     float percentage = (float)i / sleep_time * 100;
     printf("%.0f%% \n", percentage);

@@ -3,7 +3,7 @@ CXX=clang
 CXXFLAGS=-Wall -Wextra
 
 $(PROGRAM): main.o
-	$(CXX) $(CXXFLAGS) -o $@ $<
+	$(CXX) $(CXXFLAGS) -o $@ $< -lm
 
 main.o: main.c
 	$(CXX) $(CXXFLAGS) -c $<
