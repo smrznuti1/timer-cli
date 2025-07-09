@@ -12,3 +12,6 @@ main.o: main.c
 	
 clean:
 	rm -f $(PROGRAM) *.o
+
+install:
+	cp $(PROGRAM) ~/.local/bin/
