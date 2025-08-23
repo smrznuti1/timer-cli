@@ -13,7 +13,7 @@ depends=(
 # optdepends=()
 # provides=()
 # conflicts=()
-# install="${pkgname}.install"
+install="${pkgname}.install"
 source=("complete.oga"
     "main.c"
     "Makefile")
@@ -30,6 +30,6 @@ build() {
 }
 
 package() {
-    mv ./timer "$pkgdir"
-    install -Dm644 complete.oga "${pkgname}/usr/share/sounds/complete.oga"
+    install -Dm755 timer "$pkgdir/usr/bin/timer"
+    install -Dm644 complete.oga "$pkgdir/usr/share/sounds/complete.oga"
 }
