@@ -8,6 +8,8 @@ arch=('x86_64')
 depends=(
     "make"
     "clang"
+    "sox"
+    "libsoxr"
 )
 # makedepends=()
 # optdepends=()
