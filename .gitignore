@@ -1,5 +1,5 @@
 pkg/
 src/
-timer-cli-0.0.1-1-x86_64.pkg.tar.zst
+*.tar.zst
 *.o
 timer
